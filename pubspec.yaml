@@ -3,7 +3,7 @@ description: A flutter widget that provides swipe up actions similar to Instagra
 version: 1.0.0
 authors:
   - Abhishek Upmanyu <abhi.rock2611@gmail.com>
-homepage:
+homepage: https://github.com/abhishekUpmanyu/swipe_up
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
