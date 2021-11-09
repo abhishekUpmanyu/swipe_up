@@ -5,34 +5,32 @@ import 'package:flutter/material.dart';
 class SwipeUp extends StatefulWidget {
   final Widget body;
   final Widget child;
-  final VoidCallback onSwipe;
+  final VoidCallback? onSwipe;
   final double sensitivity;
   final bool showArrow;
   final Color color;
   final bool animate;
   final bool expand;
   SwipeUp(
-      {@required this.body,
-        @required this.child,
+      {required this.body,
+        required this.child,
         this.onSwipe,
         this.sensitivity = 0.5,
         this.showArrow = true,
         this.color = Colors.black54,
         this.animate = true,
         this.expand = true})
-      : assert(sensitivity > 0 && sensitivity <= 1),
-        assert(child != null),
-        assert(body != null);
+      : assert(sensitivity > 0 && sensitivity <= 1);
   @override
   _SwipeUpState createState() => _SwipeUpState();
 }
 
 class _SwipeUpState extends State<SwipeUp> with SingleTickerProviderStateMixin {
-  double _initialOffset;
-  double _swipeOffset;
+  late double _initialOffset;
+  late double _swipeOffset;
 
-  AnimationController _animationController;
-  CurvedAnimation _animation;
+  late AnimationController _animationController;
+  late CurvedAnimation _animation;
 
   @override
   void initState() {
@@ -79,7 +77,7 @@ class _SwipeUpState extends State<SwipeUp> with SingleTickerProviderStateMixin {
       },
       onVerticalDragEnd: (details) {
         if (_swipeOffset > MediaQuery.of(context).size.height / 8) {
-          widget.onSwipe();
+          widget.onSwipe?.call();
         }
         this.setState(() {
           _swipeOffset = 0.0;
