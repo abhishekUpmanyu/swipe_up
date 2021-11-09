@@ -20,9 +20,7 @@ class SwipeUp extends StatefulWidget {
         this.color = Colors.black54,
         this.animate = true,
         this.expand = true})
-      : assert(sensitivity > 0 && sensitivity <= 1),
-        assert(child != null),
-        assert(body != null);
+      : assert(sensitivity > 0 && sensitivity <= 1);
   @override
   _SwipeUpState createState() => _SwipeUpState();
 }
