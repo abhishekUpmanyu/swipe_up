@@ -79,7 +79,7 @@ class _SwipeUpState extends State<SwipeUp> with SingleTickerProviderStateMixin {
       },
       onVerticalDragEnd: (details) {
         if (_swipeOffset > MediaQuery.of(context).size.height / 8) {
-          widget.onSwipe!();
+          widget.onSwipe?.call();
         }
         this.setState(() {
           _swipeOffset = 0.0;
